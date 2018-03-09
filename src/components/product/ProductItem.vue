@@ -1,7 +1,7 @@
 <template>
 <v-flex xs12>
-  <v-card :to="'/details/'+ product.id " hover>
-    <v-card-media :src=product.image height="400px"></v-card-media>
+  <v-card :to="'/product/'+ product.id " hover>
+    <v-card-media :src=product.image height="400px" contain></v-card-media>
     <v-card-title primary-title>
       <div>
         <h3 class="headline mb-0">{{product.name}}</h3>
@@ -18,6 +18,6 @@
 <script>
 export default {
   name: 'product-item',
-  props: ['product'],
+  props: ['product']
 };
 </script>

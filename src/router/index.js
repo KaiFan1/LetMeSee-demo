@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css';
 
 import HomeRoutes from './home';
-import CartRoutes from './cart';
-import DetailsRoutes from './details';
+import CartRoutes from './Cart';
+import DetailsRoutes from './Details';
 
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css' 
 
 Vue.use(Router);
 Vue.use(Vuetify);

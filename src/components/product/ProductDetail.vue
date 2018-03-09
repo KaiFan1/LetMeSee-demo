@@ -1,19 +1,39 @@
 <template>
-    <v-container>
-        <v-layout>
-            <v-flex xs4>
-                <h1>here is a product picture</h1>
+    <v-container grid-list-xl>
+        <v-layout wrap>
+            <v-flex xs12 sm6 >
+                <v-container>
+                    <v-card-media :src=product.image contain height="400px"></v-card-media>
+                </v-container>
             </v-flex>
-            <v-flex xs8>
-                <h3>name</h3>
-                <h4>price</h4>
+            <v-flex xs12 sm6>
+                <v-container>
+                    <v-flex xs12>
+                        <h2>{{product.name}}</h2>
+                        <h3>{{product.price}}</h3>
+                        <p>{{product.description}}</p>
+                        <v-text-field name="Quantity" label="Quantity" v-model="value"></v-text-field>
+                    </v-flex>
+                    <v-btn color="primary" dark :disabled="!product.inventory" @click="addProductToCart(product)">Buy It</v-btn>
+                    <v-btn color="primary" dark>Maybe Later</v-btn>
+                </v-container>
             </v-flex>
         </v-layout>
     </v-container>
 </template>
 
 <script>
-  export default {
-    props: ['product'], 
-  }
+import { mapGetters, mapActions } from 'vuex';
+
+export default {
+    props: ['product'],
+    data(){
+        return{
+            value:1,
+        }
+    },
+    methods:mapActions([
+        'addProductToCart'
+    ]),
+};
 </script>

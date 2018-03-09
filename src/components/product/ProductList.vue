@@ -9,25 +9,23 @@
 </template>
 
 <script>
-import ProductItem from './ProductItem';
+import { mapGetters } from 'vuex';
+import ProductItem from "./ProductItem";
 
 export default {
-  name: 'product-list',
+  name: "product-list",
   created() {
-    if (this.products.length === 0) {
-      this.$store.dispatch('allProducts');
-    }
+    this.$store.dispatch('getAllProducts')
   },
-  computed: {
-    products() {
-      return this.$store.getters.allProducts;
-    },
-  },
+  computed: mapGetters({
+    products: 'allProducts',
+  }),
   components: {
     'product-item': ProductItem,
-  },
+  }
 };
 </script>
 
 <style>
+
 </style>
