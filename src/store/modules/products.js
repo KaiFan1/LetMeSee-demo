@@ -1,43 +1,3 @@
-
-// initial state
-const state = {
-  Products: [],
-  Product: {},
-};
-
-// getters
-const getters = {
-  allProducts: state => state.Products,
-  getProductByID: state => state.Product,
-};
-
-// actions
-const actions = {
-  getAllProducts({ commit }) {
-    commit('setProducts', products);
-  },
-  getProductByID({ commit }, id) {
-    commit('setProductByID', products[id - 1]);
-  },
-};
-
-// mutations
-const mutations = {
-  setProducts(state, payload) {
-    state.Products = payload;
-  },
-  setProductByID(state, payload) {
-    state.Product = payload;
-  },
-};
-
-export default {
-  state,
-  getters,
-  actions,
-  mutations,
-};
-
 const products = [
   {
     id: 1,
@@ -116,3 +76,49 @@ const products = [
     },
   },
 ];
+
+// initial state
+const state = {
+  Products: [],
+  Product: {},
+};
+
+// getters
+const getters = {
+  allProducts: state => state.Products,
+  getProductByID: state => state.Product,
+};
+
+// actions
+const actions = {
+  getAllProducts({ commit }) {
+    commit('setProducts', products);
+  },
+  getProductByID({ commit }, id) {
+    commit('setProductByID', products[id - 1]);
+  },
+
+  decrementProductInventory(state, payload) {
+    const product = state.allProducts.find(item => item.id === payload.id);
+    product.inventory -= Number(payload.quantity);
+  },
+};
+
+// mutations
+const mutations = {
+  setProducts(state, payload) {
+    state.Products = payload;
+  },
+  setProductByID(state, payload) {
+    state.Product = payload;
+  },
+};
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
+};
+
+
