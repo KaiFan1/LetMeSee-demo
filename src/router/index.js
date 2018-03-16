@@ -6,6 +6,7 @@ import 'vuetify/dist/vuetify.min.css';
 import HomeRoutes from './home';
 import CartRoutes from './Cart';
 import DetailsRoutes from './Details';
+import CheckoutRoutes from './Checkout';
 
 
 Vue.use(Router);
@@ -16,5 +17,6 @@ export default new Router({
     HomeRoutes,
     CartRoutes,
     DetailsRoutes,
+    CheckoutRoutes,
   ],
 });

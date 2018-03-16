@@ -7,15 +7,18 @@
                 <v-flex xs4 align-baseline>
                     <div class="headline">{{item.name}}</div>
                     <h3>something</h3>
-                    <a @click="removeProductFromCart(item)">delete</a>
+                    <a @click="removeProductFromCart(item)">
+                        <v-icon>delete</v-icon> Delete
+                    </a>
                 </v-flex>
                 <v-flex xs2>
                     <div>{{item.price}}</div>
                 </v-flex>
                 <v-flex xs2>
-                    <v-select editable :value=item.quantity></v-select>
+                    <div>{{item.quantity}}</div>
                 </v-flex>
             </v-layout>
+            <v-divider></v-divider>
     </v-container>
 </template>
 
